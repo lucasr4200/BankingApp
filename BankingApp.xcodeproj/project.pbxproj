@@ -24,9 +24,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2702EB5B2E4CE388007CD9C1 /* BankingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2702EB712E4CE38A007CD9C1 /* BankingAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankingAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2702EB7B2E4CE38A007CD9C1 /* BankingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		279D5C3F2E50F00C006F3F27 /* BankingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		279D5C402E50F00C006F3F27 /* BankingAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankingAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		279D5C412E50F00C006F3F27 /* BankingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -88,21 +88,21 @@
 		2702EB522E4CE388007CD9C1 = {
 			isa = PBXGroup;
 			children = (
+				2702EB902E4CF0DA007CD9C1 /* Tests */,
 				2702EB5D2E4CE388007CD9C1 /* BankingApp */,
-				2702EB742E4CE38A007CD9C1 /* BankingAppTests */,
-				2702EB7E2E4CE38A007CD9C1 /* BankingAppUITests */,
-				2702EB5C2E4CE388007CD9C1 /* Products */,
+				279D5C3F2E50F00C006F3F27 /* BankingApp.app */,
+				279D5C402E50F00C006F3F27 /* BankingAppTests.xctest */,
+				279D5C412E50F00C006F3F27 /* BankingAppUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
-		2702EB5C2E4CE388007CD9C1 /* Products */ = {
+		2702EB902E4CF0DA007CD9C1 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				2702EB5B2E4CE388007CD9C1 /* BankingApp.app */,
-				2702EB712E4CE38A007CD9C1 /* BankingAppTests.xctest */,
-				2702EB7B2E4CE38A007CD9C1 /* BankingAppUITests.xctest */,
+				2702EB742E4CE38A007CD9C1 /* BankingAppTests */,
+				2702EB7E2E4CE38A007CD9C1 /* BankingAppUITests */,
 			);
-			name = Products;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +127,7 @@
 			packageProductDependencies = (
 			);
 			productName = BankingApp;
-			productReference = 2702EB5B2E4CE388007CD9C1 /* BankingApp.app */;
+			productReference = 279D5C3F2E50F00C006F3F27 /* BankingApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2702EB702E4CE38A007CD9C1 /* BankingAppTests */ = {
@@ -150,7 +150,7 @@
 			packageProductDependencies = (
 			);
 			productName = BankingAppTests;
-			productReference = 2702EB712E4CE38A007CD9C1 /* BankingAppTests.xctest */;
+			productReference = 279D5C402E50F00C006F3F27 /* BankingAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		2702EB7A2E4CE38A007CD9C1 /* BankingAppUITests */ = {
@@ -173,7 +173,7 @@
 			packageProductDependencies = (
 			);
 			productName = BankingAppUITests;
-			productReference = 2702EB7B2E4CE38A007CD9C1 /* BankingAppUITests.xctest */;
+			productReference = 279D5C412E50F00C006F3F27 /* BankingAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -209,7 +209,7 @@
 			mainGroup = 2702EB522E4CE388007CD9C1;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 2702EB5C2E4CE388007CD9C1 /* Products */;
+			productRefGroup = 2702EB522E4CE388007CD9C1;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -294,7 +294,6 @@
 				INFOPLIST_FILE = BankingApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,7 +321,6 @@
 				INFOPLIST_FILE = BankingApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
