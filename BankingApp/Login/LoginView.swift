@@ -44,7 +44,7 @@ extension LoginView {
     func style() {
         //this line get's ready for autolayout
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .orange
+        backgroundColor = .secondarySystemBackground
         
         //initialize StackView settings
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -66,6 +66,12 @@ extension LoginView {
         
         
         dividerView.backgroundColor = .secondarySystemFill
+        
+        
+        
+        //addstyling to stackView layer
+        layer.cornerRadius = 5
+        clipsToBounds = true
         
     }
     
@@ -89,6 +95,10 @@ extension LoginView {
         ])
         
         dividerView.heightAnchor.constraint(equalToConstant: 1).isActive = true //set height of dividerView to be 1
+        
+        let textFieldHeight = UIFont.preferredFont(forTextStyle: .body).lineHeight
+        usernameTextField.heightAnchor.constraint(equalToConstant: textFieldHeight).isActive = true
+        passwordTextField.heightAnchor.constraint(equalToConstant: textFieldHeight).isActive = true
         
     }
 }
