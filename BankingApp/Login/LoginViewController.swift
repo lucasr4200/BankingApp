@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  BankingApp
 //
 //  Created by Lucas Rasmusson on 2025-08-13.
@@ -9,12 +9,21 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    // 1. start by defining name of view we want to use
+    // 1. start by defining name of views and elements we want to use
+    let titleLabelView = UILabel()
+    let subtitleLabelView = UILabel()
     let loginView = LoginView()
-    
     let signInButton = UIButton(type: .system)
-    
     let errorMessageLabel = UILabel()
+    
+    
+    var username: String? {
+        return loginView.usernameTextField.text
+    }
+    
+    var password: String? {
+        return loginView.passwordTextField.text
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +37,20 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
     func style() {
+        
+        titleLabelView.translatesAutoresizingMaskIntoConstraints = false
+        titleLabelView.text = "Banking App"
+        titleLabelView.font = .systemFont(ofSize: 36, weight: .bold)
+        titleLabelView.textAlignment = .center
+        titleLabelView.numberOfLines = 0
+        
+        subtitleLabelView.translatesAutoresizingMaskIntoConstraints = false
+        subtitleLabelView.text = "This is a banking app!"
+        subtitleLabelView.font = .systemFont(ofSize: 17)
+        subtitleLabelView.textAlignment = .center
+        subtitleLabelView.numberOfLines = 0
+        
+        
         // 3. makes view ready for AutoLayout
         loginView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -41,17 +64,35 @@ extension LoginViewController {
         errorMessageLabel.textColor = .systemRed
         errorMessageLabel.textAlignment = .center
         errorMessageLabel.numberOfLines = 0 //makes label multiline
-        errorMessageLabel.isHidden = false
-        errorMessageLabel.text = "Error Failure"
+        errorMessageLabel.isHidden = true
         
     }
     
     
     func layout() {
-        // 4. takes view and adds it into the ViewController for use
+        // 4. takes views/ elements and adds it into the ViewController for use
+        view.addSubview(titleLabelView)
+        view.addSubview(subtitleLabelView)
         view.addSubview(loginView)
         view.addSubview(signInButton)
         view.addSubview(errorMessageLabel)
+        
+        //titleText
+        NSLayoutConstraint.activate([
+            subtitleLabelView.topAnchor.constraint(equalToSystemSpacingBelow: titleLabelView.bottomAnchor, multiplier: 3), //pin to what's below
+            titleLabelView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        
+        
+        //subtitleText
+        NSLayoutConstraint.activate([
+            subtitleLabelView.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
+            subtitleLabelView.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
+            loginView.topAnchor.constraint(equalToSystemSpacingBelow: subtitleLabelView.bottomAnchor, multiplier: 3) //pin to what's below
+        ])
+        
+        
+        
         
         // 5. put all autolayout constraints to be activated all at once
         //LoginView
@@ -99,6 +140,34 @@ extension LoginViewController {
 
 extension LoginViewController{
     @objc func signInTapped(sender: UIButton) {
+        errorMessageLabel.isHidden = true //hide error message by default
+        login()
+    }
+    
+    private func login(){
+        
+        //this guard clause converts optional string into string
+        guard let username = username, let password = password else {
+            assertionFailure( "Username or password should never be null") //we should never get here
+            return
+        }
+        
+        if username.isEmpty || password.isEmpty{
+            configureView(withMessage: "Username and password are required")
+            return
+        }
+        
+        if username == "User" && password == "password"{
+            signInButton.configuration?.showsActivityIndicator = true
+        } else {
+            configureView(withMessage: "Incorrect username / password")
+        }
         
     }
+    
+    private func configureView(withMessage message: String){
+        errorMessageLabel.isHidden = false
+        errorMessageLabel.text = message
+    }
+    
 }
