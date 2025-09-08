@@ -47,6 +47,7 @@ struct LoginTests {
         }
 
         //tests if the error message is shown and that it is correct if the wrong username and passsword are given
+        // and that the activity indicator is not shown
         @Test @MainActor
         func incorrectCredentials_showsIncorrectError_andNoSpinner() async throws {
             let sut = makeSUT()
